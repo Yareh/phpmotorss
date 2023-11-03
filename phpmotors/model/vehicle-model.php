@@ -56,3 +56,4 @@ function addVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbna
     return $rowsChanged;
 }
 
+?>

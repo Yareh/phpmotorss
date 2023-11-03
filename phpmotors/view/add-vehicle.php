@@ -1,17 +1,17 @@
 <?php
 // dynamic select dropdown list
-$selectList = '<select name="classificationId" id="classificationId" required>';
-$selectList .= '<option value="">-Choose Car Classification-</option>';
-foreach ($classifications as $classification) {
-    $selectList .= "<option value='$classification[classificationId]'";
-    if (isset($classificationId)) {
-        if ($classification['classificationId'] === $classificationId) {
-            $selectList .= ' selected ';
+    $selectList = '<select name="classificationId" id="classificationId" required>';
+    $selectList .= '<option value="">-Choose Car Classification-</option>';
+    foreach ($classifications as $classification) {
+        $selectList .= "<option value='$classification[classificationId]'";
+        if (isset($classificationId)) {
+            if ($classification['classificationId'] === $classificationId) {
+                $selectList .= ' selected ';
+            }
         }
+        $selectList .= ">$classification[classificationName]</option>";
     }
-    $selectList .= ">$classification[classificationName]</option>";
-}
-$selectList .= '</select>';
+    $selectList .= '</select>';
 ?>
 
 <!DOCTYPE html>
@@ -46,41 +46,41 @@ $selectList .= '</select>';
                     <label for="invMake">Make</label><br>
                     <input <?php if (isset($invMake)) {
                                 echo "value='$invMake'";
-                            } ?> type="text" id="invMake" name="invMake"><br>
+                            } ?> type="text" id="invMake" name="invMake" required><br>
 
                     <label for="invModel">Model</label><br>
                     <input <?php if (isset($invModel)) {
                                 echo "value='$invModel'";
-                            } ?> type="text" id="invModel" name="invModel"><br>
+                            } ?> type="text" id="invModel" name="invModel" required><br>
 
                     <label for="invDescription">Description</label><br>
-                    <textarea rows="2" cols="25" id="invDescription" name="invDescription"><?php if (isset($_POST['invDescription'])) {
+                    <textarea rows="2" cols="25" id="invDescription" name="invDescription" required><?php if (isset($_POST['invDescription'])) {
                     echo htmlentities($_POST['invDescription'], ENT_QUOTES); } ?></textarea><br>
 
                     <label for="invImage">Image Path</label><br>
                     <input <?php if (isset($invImage)) {
                                 echo "value='$invImage'";
-                            } ?> type="text" id="invImage" name="invImage"><br>
+                            } ?> type="text" id="invImage" name="invImage" required><br>
 
                     <label for="invThumbnail">Thumbnail Path</label><br>
                     <input <?php if (isset($invThumbnail)) {
                                 echo "value='$invThumbnail'";
-                            } ?> type="text" id="invThumbnail" name="invThumbnail"><br>
+                            } ?> type="text" id="invThumbnail" name="invThumbnail" required><br>
 
                     <label for="invPrice">Price</label><br>
                     <input <?php if (isset($invPrice)) {
                                 echo "value='$invPrice'";
-                            } ?> type="number" id="invPrice" name="invPrice"><br>
+                            } ?> type="number" id="invPrice" name="invPrice" required><br>
 
                     <label for="invStock">Stock</label><br>
                     <input <?php if (isset($invStock)) {
                                 echo "value='$invStock'";
-                            } ?> type="number" id="invStock" name="invStock"><br>
+                            } ?> type="number" id="invStock" name="invStock" required><br>
 
                     <label for="invColor">Color</label><br>
                     <input <?php if (isset($invColor)) {
                                 echo "value='$invColor'";
-                            } ?> type="text" id="invColor" name="invColor"><br>
+                            } ?> type="text" id="invColor" name="invColor" required><br>
 
                     <input type="submit" name="submit" value="Add Vehicle" id="btn">
                     <input type="hidden" name="action" value="adding-vehicle">
